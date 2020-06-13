@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var poseInputRouter = require('./routes/poseInput');
 var poseOutputRouter = require('./routes/poseOutput');
+var historyRouter = require('./routes/history');
 
 var app = express();
 
@@ -20,5 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/rpi', poseInputRouter);
 app.use('/api', poseOutputRouter);
+app.use('/history', historyRouter);
 
 module.exports = app;
