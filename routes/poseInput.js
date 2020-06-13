@@ -5,7 +5,7 @@ const storage = require('node-persist');
 let steps = 100;
 
 /* POST get pose data from rpi */
-router.post('/', function(req, res) {
+router.post('/', async function(req, res) {
   // Get pose data
   const pose = req.body();
   pose.heartRate = getRandomArbitrary(70, 80);

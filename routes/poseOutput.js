@@ -3,7 +3,7 @@ var router = express.Router();
 const storage = require('node-persist');
 
 /* POST send pose data from rpi */
-router.post('/', function(req, res) {
+router.post('/', async function(req, res) {
   let pose = await storage.getItem('pose');
   res.json(pose);
 });
