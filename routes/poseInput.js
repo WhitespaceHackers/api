@@ -9,6 +9,9 @@ router.post('/', async function(req, res) {
   // Get pose data
   const pose = req.body;
   pose.heartRate = getRandomArbitrary(70, 80);
+  if (steps >= 5000) {
+    steps = 100;
+  }
   pose.steps = steps++;
 
   // Store in memory (just for POC purposes)
@@ -19,7 +22,7 @@ router.post('/', async function(req, res) {
 });
 
 function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min;
+  return Math.round(Math.random() * (max - min) + min);
 }
 
 module.exports = router;
