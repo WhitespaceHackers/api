@@ -15,7 +15,6 @@ router.post('/', async function(req, res) {
   pose.steps = steps++;
 
   // Store (just for POC purposes)
-  await storage.init();
   await storage.setItem('pose', pose);
   
   let history = await storage.getItem('history');

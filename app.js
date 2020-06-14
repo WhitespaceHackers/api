@@ -3,6 +3,7 @@ var cors = require('cors');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const storage = require('node-persist');
 
 var indexRouter = require('./routes/index');
 var poseInputRouter = require('./routes/poseInput');
@@ -10,6 +11,7 @@ var poseOutputRouter = require('./routes/poseOutput');
 var historyRouter = require('./routes/history');
 
 var app = express();
+storage.init();
 
 app.use(cors());
 app.use(logger('dev'));
